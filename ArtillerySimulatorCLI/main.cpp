@@ -1,10 +1,6 @@
 #pragma once
-#include "Acceleration.h"
 #include "Ammunition.h"
 #include "Angle.h"
-#include "Drag.h"
-#include "Position.h"
-#include "Velocity.h"
 #include "test/testDriver.h"
 #include <iostream>
 
