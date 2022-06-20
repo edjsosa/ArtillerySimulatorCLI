@@ -41,9 +41,12 @@ public:
   void addRadians(const double radians) { setRadians(getRadians() + radians); }
 
   // display
-  void display() {
-    std::cout << "Degrees: " << getDegrees()
-              << "deg, Radians: " << getRadians() << "rad\n";
+  void display() const {
+    std::cout.precision(2);
+    std::cout << std::fixed;
+    std::cout << "Degrees: " << getDegrees() << "deg, Radians: " << getRadians()
+              << "rad\n";
+    std::cout.clear();
   }
 
 protected:

@@ -1,5 +1,6 @@
 #pragma once
 #include "../Point.h"
+#include "../compareDouble.h"
 #include <cassert>
 
 class PointTest : Point {
@@ -89,34 +90,34 @@ public:
 
     // default constructor
     Point defaultPoint;
-    defaultPoint.display("Point");
+    defaultPoint.displayPoint();
 
     // non-default constructor
     Point nonDefaultPoint(100, 50);
-    nonDefaultPoint.display("Point");
+    nonDefaultPoint.displayPoint();
 
     // copy constructor
     Point copyPoint(nonDefaultPoint);
-    copyPoint.display("Point");
+    copyPoint.displayPoint();
 
     // setters
     defaultPoint.setPoint(nonDefaultPoint);
-    defaultPoint.display("Point");
+    defaultPoint.displayPoint();
 
     defaultPoint.setXY(25, 25);
-    defaultPoint.display("Point");
+    defaultPoint.displayPoint();
 
     defaultPoint.setX(51);
-    defaultPoint.display("Point");
+    defaultPoint.displayPoint();
 
     defaultPoint.setY(52);
-    defaultPoint.display("Point");
+    defaultPoint.displayPoint();
 
     Angle angle;
     angle.setDegrees(30);
     defaultPoint.setXY(100, 100);
     defaultPoint.setPointAngle(defaultPoint.getTotalPoint(), angle);
-    defaultPoint.display("Point");
+    defaultPoint.displayPoint();
 
     // getters
     std::cout << "defaultPoint.getX(): " << defaultPoint.getX()
@@ -129,16 +130,16 @@ public:
     // addition
     defaultPoint.setXY(25, 25);
     defaultPoint.addPoint(nonDefaultPoint);
-    defaultPoint.display("Point");
+    defaultPoint.displayPoint();
 
     defaultPoint.addXY(10, 10);
-    defaultPoint.display("Point");
+    defaultPoint.displayPoint();
 
     defaultPoint.addX(10);
-    defaultPoint.display("Point");
+    defaultPoint.displayPoint();
 
     defaultPoint.addY(10);
-    defaultPoint.display("Point");
+    defaultPoint.displayPoint();
   }
 
 private:

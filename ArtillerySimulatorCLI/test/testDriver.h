@@ -5,12 +5,13 @@
 
 void testDriver() {
 
+  PointTest postTest;
+  postTest.testGetters();
+  postTest.testSetters();
+  postTest.testAddition();
+
   AngleTest angleTest;
   angleTest.testGetters();
   angleTest.testSetters();
-
-  PointTest pointTest;
-  pointTest.testGetters();
-  pointTest.testSetters();
-  pointTest.testAddition();
+  
 }

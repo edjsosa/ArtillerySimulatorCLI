@@ -4,7 +4,6 @@
 #include <iomanip>
 #include <iostream>
 #include <math.h>
-#include <string>
 
 class Point {
 public:
@@ -80,7 +79,7 @@ public:
   void addY(const double y) { setY(y + getY()); }
 
   // display
-  void display(const char *name) {
+  void displayPoint(const char *name) const {
     std::cout.precision(2);
     std::cout << std::fixed;
     std::cout << name << ": (" << getX() << ", " << getY() << ")\n";

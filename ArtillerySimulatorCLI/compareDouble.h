@@ -1,7 +1,7 @@
 #pragma once
 #include <cmath>
 
-bool compareDouble(double x, double y) {
+bool compareDouble(const double x, const double y) {
 
   const double PRECISION = 0.001;
 

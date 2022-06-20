@@ -1,27 +1,26 @@
 #pragma once
-#include "Acceleration.h"
 #include "Angle.h"
 #include "Constants.h"
-#include "Drag.h"
-#include "Position.h"
-#include "Velocity.h"
+#include "Point.h"
 #include <iostream>
 
 class Ammunition {
 
 public:
-  void fire(Angle angle) {
-    
-    velocity.setPointAngle(TRIPLE7_VELOCITY, angle);
+  Ammunition(const double area, const double mass) {
+    this->area = area;
+    this->mass = mass;
 
-    Angle dragAngle(velocity.getPointAngle());
-    dragAngle.addRadians(PI);
+    resetAcceleration();
+  }
 
-    acceleration.setPointAngle(drag.getAcceleration(), dragAngle);
-    acceleration.addY(-1 * GRAVITY);
+  void fire(const double speed, const Angle angle) {
 
     std::cout << "\nProjectile fired at: " << std::endl;
-    // angle.display();
+    angle.display();
+
+    velocity.setPointAngle(speed, angle);
+
     displayAmmunition();
     std::cout << std::endl;
   }
@@ -33,34 +32,35 @@ public:
 
     // update velocity based on acceleration
     velocity.addXY(acceleration.getX() * TIME, acceleration.getY() * TIME);
+  }
 
-    // updated drag based on altitue and velocity
-    drag.setAltitudeVelocity(position.getY(), velocity.getTotalPoint());
-    // drag.displayDrag();
-
-    // angle drag
-    Angle dragAngle(velocity.getPointAngle());
-    dragAngle.addRadians(PI);
-
-    // update acceleration based on drag
-    acceleration.setPointAngle(drag.getAcceleration(), dragAngle);
-    acceleration.addY(-1 * GRAVITY);
+  void applyDrag(Point dragAcceleration) {
+    resetAcceleration();
+    acceleration.addPoint(dragAcceleration);
   }
 
   // getter
-  Position getPosition() const { return position; }
+  Point getPosition() const { return position; }
+  Point getVelocity() const { return velocity; }
+  Point getAcceleration() const { return acceleration; }
+
+  double getArea() const { return area; }
+  double getMass() const { return mass; }
 
   // display
-  void displayAmmunition() {
-    position.display();
-    velocity.display();
-    acceleration.display();
-    drag.display();
+  void displayAmmunition() const {
+    position.displayPoint("Position");
+    velocity.displayPoint("Velocity");
+    acceleration.displayPoint("Acceleration");
   }
 
 private:
-  Position position;
-  Velocity velocity;
-  Acceleration acceleration;
-  Drag drag;
+  Point position;
+  Point velocity;
+  Point acceleration;
+
+  double area;
+  double mass;
+
+  void resetAcceleration() { acceleration.setXY(0, -1 * GRAVITY); }
 };

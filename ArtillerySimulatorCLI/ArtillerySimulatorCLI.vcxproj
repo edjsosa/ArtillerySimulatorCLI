@@ -18,6 +18,29 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Ammunition.h" />
+    <ClInclude Include="Angle.h" />
+    <ClInclude Include="compareDouble.h" />
+    <ClInclude Include="Constants.h" />
+    <ClInclude Include="data\data.h" />
+    <ClInclude Include="Drag.h" />
+    <ClInclude Include="Point.h" />
+    <ClInclude Include="test\AngleTest.h" />
+    <ClInclude Include="test\PointTest.h" />
+    <ClInclude Include="test\testDriver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="data\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="data\coefficient.txt" />
+    <Text Include="data\density.txt" />
+    <Text Include="data\sound.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -138,33 +161,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="Acceleration.h" />
-    <ClInclude Include="Ammunition.h" />
-    <ClInclude Include="Angle.h" />
-    <ClInclude Include="compareDouble.h" />
-    <ClInclude Include="Constants.h" />
-    <ClInclude Include="Drag.h" />
-    <ClInclude Include="Point.h" />
-    <ClInclude Include="Position.h" />
-    <ClInclude Include="test\AngleTest.h" />
-    <ClInclude Include="test\PointTest.h" />
-    <ClInclude Include="test\testDriver.h" />
-    <ClInclude Include="Velocity.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdcpp20</LanguageStandard>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="data\coefficient.txt" />
-    <Text Include="data\density.txt" />
-    <Text Include="data\sound.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="data\README.md" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
